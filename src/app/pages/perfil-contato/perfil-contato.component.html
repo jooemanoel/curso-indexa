@@ -1,0 +1,27 @@
+<app-container>
+
+    <app-cabecalho [telaInicial]=false [bannerScr]="'assets/perfil-contato.png'"
+        [titulo]="'Perfil do Contato'"></app-cabecalho>
+
+    <section class="perfil">
+        <div class="imagem-perfil">
+            <img [src]="contato.avatar" alt="avatar">
+            <h2><strong>{{contato.nome}}</strong></h2>
+        </div>
+        <app-separador></app-separador>
+        <ul>
+            <li><strong>Telefone</strong></li>
+            <li>{{contato.telefone}}</li>
+            <li><strong>E-mail</strong></li>
+            <li>{{contato.email}}</li>
+            <li><strong>Data de nascimento</strong></li>
+            <li>{{contato.aniversario}}</li>
+            <li><strong>Redes sociais</strong></li>
+            <li>{{contato.redes}}</li>
+        </ul>
+        <div class="botoes">
+            <button class="botao-excluir" (click)="excluir()">Excluir contato</button>
+            <button class="botao-editar" [routerLink]="['/formulario', contato.id]">Editar</button>
+        </div>
+    </section>
+</app-container>

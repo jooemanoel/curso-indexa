@@ -1,0 +1,24 @@
+<app-container>
+    <app-cabecalho [telaInicial]=true [bannerScr]="'assets/banner.png'"
+        [titulo]="'Organize, <span>conecte,</span> simplifique!'">
+    </app-cabecalho>
+
+    <input id="busca" type="search" placeholder="Digite para buscar" [(ngModel)]="filtroPorTexto" />
+
+    <section class="adicionar-contato">
+        <button routerLink="/formulario">
+            <img src="assets/plus.png" alt="">
+            <span>Adicionar contato</span>
+        </button>
+    </section>
+
+    <div *ngFor="let letra of alfabeto">
+        <app-separador>
+            {{ letra }}
+        </app-separador>
+        <div *ngFor="let contato of filtrarContatosPorLetraInicial(letra)">
+            <app-contato [nome]="contato.nome" [telefone]="contato.telefone" [id]="contato.id!"
+                [avatar]="contato.avatar"></app-contato>
+        </div>
+    </div>
+</app-container>

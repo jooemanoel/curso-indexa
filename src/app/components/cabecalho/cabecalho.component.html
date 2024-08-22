@@ -1,0 +1,11 @@
+<header class="cabecalho">
+    <img src="/assets/logo.png" class="logo">
+    <div class="link" *ngIf="(!telaInicial)">
+        <button>
+            <img class="seta" src="assets/arrow-left.png" alt="">
+            <a routerLink="/lista-contatos">Voltar</a>
+        </button>
+    </div>
+    <img [src]="bannerScr" class="banner">
+    <h1 [ngClass]="telaInicial ? 'titulo' : 'titulo-form'" [innerHTML]="titulo"></h1>
+</header>
