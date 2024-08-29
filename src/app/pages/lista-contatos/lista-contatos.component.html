@@ -13,12 +13,14 @@
     </section>
 
     <div *ngFor="let letra of alfabeto">
-        <app-separador>
-            {{ letra }}
-        </app-separador>
-        <div *ngFor="let contato of filtrarContatosPorLetraInicial(letra)">
-            <app-contato [nome]="contato.nome" [telefone]="contato.telefone" [id]="contato.id!"
-                [avatar]="contato.avatar"></app-contato>
+        <div *ngIf="filtrarContatosPorLetraInicial(letra).length">
+            <app-separador>
+                {{ letra }}
+            </app-separador>
+            <div *ngFor="let contato of filtrarContatosPorLetraInicial(letra)">
+                <app-contato [nome]="contato.nome" [telefone]="contato.telefone" [id]="contato.id!"
+                    [avatar]="contato.avatar"></app-contato>
+            </div>
         </div>
     </div>
 </app-container>
